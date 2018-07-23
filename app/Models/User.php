@@ -17,6 +17,12 @@ class User extends Authenticatable
     protected $fillable = [
         'name', 'email', 'password','status','shop_id'
     ];
+    //设置一个方法
+    public function shop()
+        {
+
+        return $this->belongsTo(Shop::class,'shop_id');
+    }
 
     /**
      * The attributes that should be hidden for arrays.

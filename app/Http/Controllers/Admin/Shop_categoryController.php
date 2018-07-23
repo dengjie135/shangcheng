@@ -66,9 +66,13 @@ class Shop_categoryController extends Controller
     public  function  edit(Request $request ,$id){
          //找到当前id的数据
         $shops = Shop_category::findOrFail($id);
+
         //判断是否是post方式提交
         if ($request->isMethod('post')){
              $data = $request->all();
+
+
+
              //上传图片
             if (!empty($data['img'])){
                 $filename = ImageUploadTool::save($request->file('img'),"","photo");
@@ -80,7 +84,8 @@ class Shop_categoryController extends Controller
                 $data['logo'] = $shops['logo'];
             }
             //更改数据
-            $shops->update($data);
+             $shops->update($data);
+
             //显示信息
             $request->session()->flash('success','修改成功');
             //跳转

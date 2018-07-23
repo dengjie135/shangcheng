@@ -1,20 +1,26 @@
-* ÉÌ¼Ò×¢²áÊ±£¬Í¬²½ÌîĞ´ÉÌ¼ÒĞÅÏ¢£¬ÉÌ¼ÒÕËºÅºÍÃÜÂë
-* ÉÌ¼Ò×¢²áºó£¬ĞèÒªÆ½Ì¨ÉóºËÍ¨¹ı£¬ÕËºÅ²ÅÄÜÊ¹ÓÃ
-* Æ½Ì¨¿ÉÒÔÖ±½ÓÌí¼ÓÉÌ¼ÒĞÅÏ¢ºÍÕË»§£¬Ä¬ÈÏÒÑÉóºËÍ¨¹ı
-ÊµÏÖ²½Öè
-1. composer create-project --prefer-dist laravel/laravel ele "5.5.*" -vvv
-2. ÉèÖÃĞéÄâÖ÷»ú Èı¸öÓòÃû
-3. °Ñ»ù±¾ÅäÖÃ
-4. ½¨Á¢Êı¾İ¿âele
-5. ÅäÖÃ.envÎÄ¼ş Êı¾İ¿âÅäºÃ
-6. ÅäÖÃÓïÑÔ°ü
-7. Êı¾İÇ¨ÒÆ
-8. ´´½¨±í php artisan make:model Models/ShopCategory -m
-9. ×¼±¸ºÃ»ù´¡Ä£°å
-10. ´´½¨ ¿ØÖÆÆ÷ php artisan make:controller Admin/ShopCategoryController
-11. ´´½¨ÊÓÍ¼ ÊÓÍ¼Ò²Òª·ÖÄ£¿é
-12. Â·ÓÉĞèÒª·Ö×é
-ÉÌ¼Ò·ÖÀà±íshop_categories
-×Ö¶ÎÃû³ÆÀàĞÍ±¸×¢idprimaryÖ÷¼ünamestring·ÖÀàÃû³Æimgstring·ÖÀàÍ¼Æ¬statusint×´Ì¬£º1ÏÔÊ¾£¬0Òş²ØÉÌ¼ÒĞÅÏ¢±íshops
-×Ö¶ÎÃû³ÆÀàĞÍ±¸×¢idprimaryÖ÷¼üshop_category_idintµêÆÌ·ÖÀàIDshop_namestringÃû³Æshop_imgstringµêÆÌÍ¼Æ¬shop_ratingfloatÆÀ·ÖbrandbooleanÊÇ·ñÊÇÆ·ÅÆon_timebooleanÊÇ·ñ×¼Ê±ËÍ´ïfengniaobooleanÊÇ·ñ·äÄñÅäËÍbaobooleanÊÇ·ñ±£±ê¼ÇpiaobooleanÊÇ·ñÆ±±ê¼ÇzhunbooleanÊÇ·ñ×¼±ê¼Çstart_sendfloatÆğËÍ½ğ¶îsend_costfloatÅäËÍ·Ñnoticestringµê¹«¸ædiscountstringÓÅ»İĞÅÏ¢statusint×´Ì¬:1Õı³£,0´ıÉóºË,-1½ûÓÃÉÌ¼ÒÕËºÅ±íusers
-×Ö¶ÎÃû³ÆÀàĞÍ±¸×¢idprimaryÖ÷¼ünamestringÃû³ÆemailemailÓÊÏäpasswordstringÃÜÂëremember_tokenstringtokenstatusint×´Ì¬£º1ÆôÓÃ£¬0½ûÓÃshop_idintËùÊôÉÌ¼Ò
+1.å•†å®¶æ³¨å†Œæ—¶ï¼ŒåŒæ­¥å¡«å†™å•†å®¶ä¿¡æ¯ï¼Œå•†å®¶è´¦å·å’Œå¯†ç 
+2.å•†å®¶æ³¨å†Œåï¼Œéœ€è¦å¹³å°å®¡æ ¸é€šè¿‡ï¼Œè´¦å·æ‰èƒ½ä½¿ç”¨
+3.å¹³å°å¯ä»¥ç›´æ¥æ·»åŠ å•†å®¶ä¿¡æ¯å’Œè´¦æˆ·ï¼Œé»˜è®¤å·²å®¡æ ¸é€šè¿‡
+
+
+
+è·¯ç”±éœ€è¦åˆ†ç»„
+
+Route::get('/', function () {
+    return view('welcome');
+});
+//å¹³å°
+Route::domain('admin.ele.com')->namespace('Admin')->group(function () {
+    //åº—é“ºåˆ†ç±»
+    Route::get('shop_category/index',"ShopCategoryController@index");
+    });
+
+//å•†æˆ·
+Route::domain('shop.ele.com')->namespace('Shop')->group(function () {
+    Route::get('user/reg',"UserController@reg");
+    Route::get('user/index',"UserController@index");
+});
+
+
+åŠ¡ä¿è¯å•†å®¶ä¿¡æ¯å’Œè´¦å·åŒæ—¶æ³¨å†ŒæˆåŠŸ
+å•†æˆ·ç™»å½•æ­£å¸¸ç™»å½•ï¼Œç™»å½•ä¹‹ååˆ¤æ–­åº—é“ºçŠ¶æ€æ˜¯å¦ä¸º1ï¼Œä¸ä¸º1ä¸èƒ½åšä»»ä½•æ“ä½œ

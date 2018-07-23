@@ -25,7 +25,14 @@ Route::domain('www.xm.com')->namespace('Admin')->group(function () {
 
 //商户
 Route::domain('sp.com')->namespace('Shop')->group(function () {
-        Route::get('user/reg', "UserController@reg");
-    Route::get('user/index', "UserController@index");
+    Route::any('user/reg', "UserController@reg")->name('user.reg');
+    Route::get('user/index', "UserController@index")->name('user.index');
+    Route::any('user/login', "UserController@login")->name('user.login');
+    Route::any('user/select', "UserController@select")->name('user.select');
+    Route::any('user/edit/{id}', "UserController@edit")->name('user.edit');
+    Route::any('user/out', "UserController@out")->name('user.out');
+    Route::any('user/edits/{id}', "UserController@edits")->name('user.edits');
+    Route::any('user/del/{id}', "UserController@del")->name('user.del');
+
 });
 

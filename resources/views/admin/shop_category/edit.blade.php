@@ -30,7 +30,7 @@
 
         <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" class="btn btn-info">添加</button>
+                <button type="submit" class="btn btn-info">编辑</button>
             </div>
         </div>
     </form>

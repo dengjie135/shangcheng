@@ -8,7 +8,7 @@
     <table class="table table-bordered">
         <tr>
             <th>Id</th>
-            <th>名称</th>
+            <th>分类名称</th>
             <th>状态</th>
             <th>LOGO</th>
             <th>操作</th>
@@ -18,11 +18,11 @@
             <tr>
                 <td>{{$cate->id}}</td>
                 <td>{{$cate->name}}</td>
-                <td>{{$cate->status ? ""}}</td>
+                <td>{{$cate->status ? "正常" : "未通过"}}</td>
                 <td>
-                    @if($cate['logo'])
+
                     <img src="/{{$cate->logo}}" width="80">
-                    @endif
+
                 </td>
                 <td>
                     <a href="{{route('shop_category.edit',$cate)}}" class="btn btn-info">编辑</a>

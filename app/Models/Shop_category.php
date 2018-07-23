@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Shop_category extends Model
 {
     //可以修改的字段
-    public $fillable=['name','logo'];
+    public $fillable=['name','logo','status'];
 }
