@@ -24,3 +24,4 @@ Route::domain('shop.ele.com')->namespace('Shop')->group(function () {
 
 务保证商家信息和账号同时注册成功
 商户登录正常登录，登录之后判断店铺状态是否为1，不为1不能做任何操作
+权限没做完
