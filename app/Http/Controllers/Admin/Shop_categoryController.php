@@ -13,11 +13,17 @@ class Shop_categoryController extends Controller
      //显示首页
      public function  index(){
 
+<<<<<<< HEAD
 
         $cates =  Shop_category::paginate(3);
           return view('admin/shop_category/index',compact('cates'));
      }
 
+=======
+        $cates =  Shop_category::all();
+          return view('admin/shop_category/index',compact('cates'));
+     }
+>>>>>>> f0c73c801c19898524ac697b5dc1b72e93188d95
      //添加功能
      public function  add(Request $request){
          //判断是否是post接受
@@ -53,7 +59,11 @@ class Shop_categoryController extends Controller
           //找到当前id的数据
          $shop = Shop_category::find($id);
           //删除
+<<<<<<< HEAD
           $shop->delete();
+=======
+          $shop::delete();
+>>>>>>> f0c73c801c19898524ac697b5dc1b72e93188d95
           //展示信息
          $request->session()->flash('success','删除成功');
          //回到首页
@@ -61,6 +71,7 @@ class Shop_categoryController extends Controller
 
 
     }
+<<<<<<< HEAD
 
     //编辑功能
     public  function  edit(Request $request ,$id){
@@ -97,4 +108,6 @@ class Shop_categoryController extends Controller
          }
 
 
+=======
+>>>>>>> f0c73c801c19898524ac697b5dc1b72e93188d95
 }

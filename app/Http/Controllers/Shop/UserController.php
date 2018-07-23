@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Shop;
 
 
 
+<<<<<<< HEAD
 use App\Models\Shop;
 use App\Models\Shop_category;
 use App\Models\User;
@@ -12,18 +13,27 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+=======
+use App\Models\User;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+>>>>>>> f0c73c801c19898524ac697b5dc1b72e93188d95
 
 class UserController extends Controller
 {
      //显示首页
     public  function  index(){
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f0c73c801c19898524ac697b5dc1b72e93188d95
      $users =  User::all();
 
       //显示视图
         return view('shop/user/index',compact('users'));
     }
+<<<<<<< HEAD
 
     //注册
      public  function  reg(Request $request){
@@ -159,4 +169,11 @@ class UserController extends Controller
 
 
 
+=======
+    //注册
+    public  function  reg(){
+        //显示视图
+        return view('shop/user/reg');
+    }
+>>>>>>> f0c73c801c19898524ac697b5dc1b72e93188d95
 }

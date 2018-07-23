@@ -17,14 +17,21 @@ Route::get('/', function () {
 //平台
 Route::domain('www.xm.com')->namespace('Admin')->group(function () {
     //店铺分类
+<<<<<<< HEAD
     Route::get('shop_category/index',"shop_categoryController@index")->name('shop_category.index');
     Route::any('shop_category/add',"shop_categoryController@add")->name('shop_category.add');
     Route::any('shop_category/del/{id}',"shop_categoryController@del")->name('shop_category.del');
     Route::any('shop_category/edit/{id}',"shop_categoryController@edit")->name('shop_category.edit');
+=======
+    Route::get('shop_category/index',"shop_categoryController@index");
+    Route::any('shop_category/add',"shop_categoryController@add");
+    Route::any('shop_category/del{id}',"shop_categoryController@del");
+>>>>>>> f0c73c801c19898524ac697b5dc1b72e93188d95
 });
 
 //商户
 Route::domain('sp.com')->namespace('Shop')->group(function () {
+<<<<<<< HEAD
     Route::any('user/reg', "UserController@reg")->name('user.reg');
     Route::get('user/index', "UserController@index")->name('user.index');
     Route::any('user/login', "UserController@login")->name('user.login');
@@ -34,5 +41,9 @@ Route::domain('sp.com')->namespace('Shop')->group(function () {
     Route::any('user/edits/{id}', "UserController@edits")->name('user.edits');
     Route::any('user/del/{id}', "UserController@del")->name('user.del');
 
+=======
+        Route::get('user/reg', "UserController@reg");
+    Route::get('user/index', "UserController@index");
+>>>>>>> f0c73c801c19898524ac697b5dc1b72e93188d95
 });
 
