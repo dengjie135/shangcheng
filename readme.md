@@ -1,28 +1,13 @@
-<<<<<<< HEAD
-1.商家注册时，同步填写商家信息，商家账号和密码
-2.商家注册后，需要平台审核通过，账号才能使用
-3.平台可以直接添加商家信息和账户，默认已审核通过
+- 7.26内容
+ 
+  当前会员登陆的操作，编辑自身的菜品和管理菜类
+ - 使用webuploder图片上传，提升用户上传片体验
+- 平台活动管理（活动列表可按条件筛选 未开始/进行中/已结束 的活动）
+商户端 
+- 查看平台活动（活动列表和活动详情） 
+- 活动列表不显示已结束的活动 
 
-
-
-路由需要分组
-
-Route::get('/', function () {
-    return view('welcome');
-});
-//平台
-Route::domain('admin.ele.com')->namespace('Admin')->group(function () {
-    //店铺分类
-    Route::get('shop_category/index',"ShopCategoryController@index");
-    });
-
-//商户
-Route::domain('shop.ele.com')->namespace('Shop')->group(function () {
-    Route::get('user/reg',"UserController@reg");
-    Route::get('user/index',"UserController@index");
-});
-
-
-事务保证商家信息和账号同时注册成功
-商户登录正常登录，登录之后判断店铺状态是否为1，事务管理上传图片显示没有匹配的配置规定
-已经解决，商户登陆只能是状态为一的账户，查看自己的信息并可以修改，账户的登陆和注销，账户的操作
+  问题 
+ - 1.上传问题出错已解决
+ - 2.平台查看用编辑器
+ - 3.解决了小bug
