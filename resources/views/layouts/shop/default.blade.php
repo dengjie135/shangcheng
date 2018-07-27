@@ -62,7 +62,9 @@
         </section>
 
     {{--引入错误 提示--}}
+    @include("layouts.shop._errors")
     {{--引用户 消息提示--}}
+    @include("layouts.shop._msg")
     <!-- Main content -->
     {{--主体部分--}}
     @yield("content")

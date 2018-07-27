@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Shop;
 
 
 
-<<<<<<< HEAD
+
+use App\Models\Menu;
+use App\Models\Menu_category;
 use App\Models\Shop;
 use App\Models\Shop_category;
 use App\Models\User;
@@ -13,27 +15,24 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-=======
-use App\Models\User;
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
->>>>>>> f0c73c801c19898524ac697b5dc1b72e93188d95
+
+
+
+
+
 
 class UserController extends Controller
 {
      //显示首页
     public  function  index(){
 
-<<<<<<< HEAD
+     $users =  User::paginate(4);
 
-=======
->>>>>>> f0c73c801c19898524ac697b5dc1b72e93188d95
-     $users =  User::all();
 
       //显示视图
         return view('shop/user/index',compact('users'));
     }
-<<<<<<< HEAD
+
 
     //注册
      public  function  reg(Request $request){
@@ -80,7 +79,7 @@ class UserController extends Controller
 
 
            //跳转至添加页面
-            return redirect()->route("user.index");
+            return redirect()->route("user.login");
         }
 
        //得到所有商家分类
@@ -106,17 +105,16 @@ class UserController extends Controller
      return view('shop/user/login');
 
     }
+    //查看当前用户的信息
     public  function  select(){
         $id = Auth::id();
-
 //        dd($id);
         //找到当前id的所有数据
         $users = User::find($id);
 
-
-
      return view('shop/user/select',compact('users'));
     }
+     //编辑自身
     public  function  edit(Request $request,$id){
         //找到id当前的所有数据
        $users  =  User::find($id);
@@ -134,7 +132,7 @@ class UserController extends Controller
              return    view('shop/user/edit',compact('users'));
 
     }
-       //注销
+    //注销
     public  function  out(Request $request){
         Auth::logout();
         //跳转
@@ -147,33 +145,76 @@ class UserController extends Controller
     public  function  edits(Request $request ,$id){
         //找到当前id的数据
         $users = User::findOrFail($id);
-        dd($users);
+
+
 
         //判断是否是post方式提交
         if ($request->isMethod('post')){
             $data = $request->all();
 
-
-
             //更改数据
             $users->update($data);
-
-
             //跳转
-//            return redirect()->route('user.index');
+           return redirect()->route('user.index');
         }
         //显示视图
-//        return view('shop/user/edit1',compact('users'));
+       return view('shop/user/edit1',compact('users'));
 
     }
 
+    //删除
+    public function  del(Request $request,$id)
+        {
+            //找到当前id的数据
+            $users = User::findorfail($id);
+            $users->delete();
+            return redirect()->route('user.index');
+        }
+
+ //查看菜品
+    public function select1  (){
+            //找到当前登陆的用户id
+            $id = Auth::user()->shop_id;
+            //找到菜单中当前用户的菜品
+            $menus =  Menu::where("shop_id","=",$id)->get();
+            //显示视图
+          return   view('shop/user/select1',compact('menus'));
 
 
-=======
-    //注册
-    public  function  reg(){
-        //显示视图
-        return view('shop/user/reg');
+
+        }
+
+
+  //添加菜品
+    public  function  add(Request $request){
+         //找到所有分类
+         $menus =  Menu_category::all('name');
+//        //找到当前登陆的用户id
+       $id = Auth::user()->shop_id;
+
+       if ($request->isMethod('post')){
+            $data = $request->post();
+            $data['shop_id'] = $id;
+           Menu::create($data);
+          return redirect()->route('user.select1');
+
+
     }
->>>>>>> f0c73c801c19898524ac697b5dc1b72e93188d95
+          return view('shop/user/m_add','menus');
+
+
+    }
+
+//
+
+
+
+
+
+
+
+
+
+
+
 }

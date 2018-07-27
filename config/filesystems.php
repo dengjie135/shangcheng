@@ -63,6 +63,15 @@ return [
             'bucket' => env('AWS_BUCKET'),
         ],
 
+        'oss' => [
+            'driver'        => 'oss',
+            'access_id'     => 'LTAIOru5R1XmJnRz',
+            'access_key'    => 'bWtBKLWIWbSMb3dBxXc13YBuTvqGl4',
+            'bucket'        => 'djele',
+            'endpoint'      => 'oss-cn-shenzhen.aliyuncs.com', // OSS 外网节点或自定义外部域名
+            'debug'         => false
+        ],
+
     ],
 
 ];

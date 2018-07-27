@@ -45,14 +45,14 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
-<<<<<<< HEAD
+
         //添加一个guards
         'admin' => [
             'driver' => 'session',
             'provider' => 'admins',//数据提示者
         ],
-=======
->>>>>>> f0c73c801c19898524ac697b5dc1b72e93188d95
+
+
     ],
 
     /*
@@ -75,11 +75,16 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-<<<<<<< HEAD
+
             'model' => App\Models\User::class,
-=======
-            'model' => App\User::class,
->>>>>>> f0c73c801c19898524ac697b5dc1b72e93188d95
+
+
+
+        ],
+        //提供平台登录
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => \App\Models\Admin::class,
         ],
 
         // 'users' => [
